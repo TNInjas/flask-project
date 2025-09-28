@@ -1,1 +1,1 @@
-DeepSeek_R1_API = "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"
+DeepSeek_R1_API = "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"
