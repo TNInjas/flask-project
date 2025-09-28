@@ -56,7 +56,7 @@ document.getElementById('qp-chat-form').onsubmit = async function(e) {
     const res = await fetch('/question-practice/ask', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({ messages: qpChatHistoryArr, model_name: 'Deepseek_V3.1' })
+  body: JSON.stringify({ messages: qpChatHistoryArr, model_name: 'Mistral_large_latest' })
     });
     const data = await res.json();
     qpChatHistoryArr.push({role: 'assistant', content: data.choices ? data.choices[0].message.content : 'No response.'});
@@ -78,3 +78,4 @@ function renderMarkdown(text) {
     .replace(/\#\s?(.*)/g, '<h3>$1</h3>');
 
 }
+
