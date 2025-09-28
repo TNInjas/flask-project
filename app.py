@@ -23,7 +23,7 @@ def generate_questions():
             f"for a {data.get('level', 'beginner')} learner."
         )
         response = model_comm.call_model(
-            model_name=data.get('model_name', 'Deepseek_V3.1'),
+            model_name=data.get('model_name', 'Mistral_large_latest'),
             prompt=prompt
         )
         return jsonify(response)
@@ -36,7 +36,7 @@ def ask_question_assistant():
         data = request.json
         # Just send the user messages directly to the model, no prompt wrapping
         response = model_comm.call_model(
-            model_name=data.get('model_name', 'Deepseek_V3.1'),
+            model_name=data.get('model_name', 'Mistral_large_latest'),
             messages=data.get('messages', [])
         )
         return jsonify(response)
@@ -55,7 +55,7 @@ def explain_concept():
             language=data.get('language', '')
         )
         response = model_comm.call_model(
-            model_name=data.get('model_name', 'Deepseek_R1'),
+            model_name=data.get('model_name', 'Mistral_large_latest'),
             prompt=prompt
         )
         return jsonify(response)
@@ -68,7 +68,7 @@ def ask_concept_assistant():
         data = request.json
         # Just send the user messages directly to the model, no prompt wrapping
         response = model_comm.call_model(
-            model_name=data.get('model_name', 'Deepseek_R1'),
+            model_name=data.get('model_name', 'Mistral_large_latest'),
             messages=data.get('messages', [])
         )
         return jsonify(response)
@@ -141,4 +141,5 @@ if __name__ == "__main__":
         print("[ERROR] Missing configuration:", ", ".join(missing))
     else:
         print("[INFO] All model URLs and API keys are configured.")
+
     app.run(debug=True)
