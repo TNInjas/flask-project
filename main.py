@@ -1,6 +1,6 @@
 import requests
 import json
-from API import DEEPSEEK_R1_API, DEEPSEEK_V3_API, MISTRAL_LARGE_LATEST
+from API import MISTRAL_LARGE_LATEST
 from Prompts.Project_prompt import Project_prompt
 from Prompts.Question_practice_prompt import Question_practice_prompt
 from Prompts.Concept_revision_prompt import Concept_revision_prompt
@@ -8,18 +8,12 @@ from Prompts.Concept_revision_prompt import Concept_revision_prompt
 class Model_communication:
     def __init__(self):
         self.api_keys = {
-            "Deepseek_R1": DEEPSEEK_R1_API.DeepSeek_R1_API,
-            "Deepseek_V3.1": DEEPSEEK_V3_API.Deepseek_V3_API,
             "Mistral_large_latest": MISTRAL_LARGE_LATEST.Mistral_large_latest_API
         }
         self.urls = {
-            "Deepseek_R1": "https://openrouter.ai/api/v1/chat/completions",
-            "Deepseek_V3.1": "https://openrouter.ai/api/v1/chat/completions",
             "Mistral_large_latest": "https://api.mistral.ai/v1/chat/completions"
         }
         self.model_map = {
-            "Deepseek_R1": "deepseek/deepseek-r1:free",
-            "Deepseek_V3.1": "deepseek/deepseek-chat-v3.1:free",
             "Mistral_large_latest": "mistral-large-latest"
         }
         self.prompts = {
@@ -65,4 +59,5 @@ class Model_communication:
         except requests.exceptions.ConnectionError:
             return {"error": "Could not connect to the model API. Please check your network or API URL."}
         except requests.exceptions.RequestException as e:
+
             return {"error": str(e), "details": getattr(e.response, 'text', str(e))}
