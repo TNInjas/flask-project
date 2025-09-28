@@ -8,7 +8,7 @@ document.getElementById('qp-form').onsubmit = async function(e) {
     const res = await fetch('/question-practice/generate', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({ concept, language, level, num_questions: num, model_name: 'Deepseek_V3.1' })
+  body: JSON.stringify({ concept, language, level, num_questions: num, model_name: 'Mistral_large_latest' })
     });
     const data = await res.json();
     if (data.error) {
@@ -76,4 +76,5 @@ function renderMarkdown(text) {
     .replace(/\*(.*?)\*/g, '<i>$1</i>')
     .replace(/\n/g, '<br>')
     .replace(/\#\s?(.*)/g, '<h3>$1</h3>');
+
 }
