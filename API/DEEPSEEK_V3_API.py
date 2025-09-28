@@ -1,1 +1,1 @@
-Deepseek_V3_API = "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"
+Deepseek_V3_API = "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"
