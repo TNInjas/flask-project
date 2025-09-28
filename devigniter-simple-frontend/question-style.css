@@ -1,0 +1,213 @@
+body {
+  background: #181c24;
+  color: #f3f4f6;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  margin: 0;
+  min-height: 100vh;
+}
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 32px 16px;
+}
+h1 {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+}
+.flex-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+button {
+  background: #3b82f6;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7rem 1.2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+button:hover {
+  background: #2563eb;
+}
+#qp-questions {
+  margin-bottom: 2rem;
+}
+#qp-chatbot {
+  margin-top: 2rem;
+}
+.card {
+  background: #2d3344;
+  border-radius: 16px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(59, 130, 246, 0.05);
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+}
+
+.content-text {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #f3f4f6;
+}
+
+.content-text p {
+  margin: 0.8em 0;
+}
+
+/* Remove # symbols from generated content */
+.content-text h1,
+.content-text h2,
+.content-text h3,
+.content-text h4,
+.content-text h5,
+.content-text h6 {
+  font-weight: 600;
+  margin: 1.5em 0 0.8em;
+  color: #fff;
+}
+.assistant-panel {
+  background: linear-gradient(135deg, #23283a 70%, #3b82f6 140%);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(59, 130, 246, 0.25);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  min-height: 220px;
+  transition: all 0.3s ease;
+  position: relative;
+  border: 1px solid rgba(59, 130, 246, 0.1);
+}
+
+.assistant-panel:hover {
+  box-shadow: 0 12px 40px rgba(59, 130, 246, 0.35);
+  transform: translateY(-2px);
+}
+.chat-history {
+  max-height: 260px;
+  overflow-y: auto;
+  margin-bottom: 1rem;
+  padding-right: 0.8rem;
+  scroll-behavior: smooth;
+}
+
+.chat-history::-webkit-scrollbar {
+  width: 8px;
+}
+
+.chat-history::-webkit-scrollbar-track {
+  background: rgba(35, 40, 58, 0.3);
+  border-radius: 4px;
+}
+
+.chat-history::-webkit-scrollbar-thumb {
+  background: rgba(59, 130, 246, 0.5);
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.chat-history::-webkit-scrollbar-thumb:hover {
+  background: rgba(59, 130, 246, 0.7);
+}
+.chat-bubble {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 1rem;
+  gap: 1rem;
+  opacity: 0;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.chat-bubble.user {
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+
+.chat-bubble .avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #3b82f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+  transition: all 0.3s ease;
+}
+
+.chat-bubble .avatar:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.5);
+}
+
+.chat-bubble.user .avatar {
+  background: #2d3344;
+  color: #3b82f6;
+  box-shadow: 0 4px 12px rgba(35, 40, 58, 0.3);
+}
+.bubble {
+  background: #2d3344;
+  color: #fff;
+  border-radius: 16px 16px 4px 16px;
+  padding: 1rem 1.4rem;
+  font-size: 1.05rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 70%;
+  line-height: 1.5;
+  transition: all 0.3s ease;
+  word-break: break-word;
+  animation: popIn 0.4s;
+}
+.chat-bubble.user .bubble {
+  background: #3b82f6;
+  color: #fff;
+  border-radius: 12px 12px 12px 4px;
+}
+.typing-indicator {
+  display: inline-block;
+  width: 36px;
+  height: 18px;
+  vertical-align: middle;
+}
+.typing-indicator span {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin: 0 2px;
+  background: #3b82f6;
+  border-radius: 50%;
+  opacity: 0.7;
+  animation: blink 1.2s infinite both;
+}
+.typing-indicator span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.typing-indicator span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+@keyframes blink {
+  0%,
+  80%,
+  100% {
+    opacity: 0.7;
+  }
+  40% {
+    opacity: 0.2;
+  }
+}

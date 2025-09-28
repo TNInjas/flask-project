@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DevIgniter - Project Mode</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="project-style.css">
+  <style>
+    /* Timeline container styling */
+    #timeline { background: #23283a; padding: 1rem; border-radius: 8px; }
+    .milestone { padding: 0.5rem 0; border-bottom: 1px solid #333; }
+    .milestone:last-child { border-bottom: none; }
+    .section-divider { height: 2px; background: linear-gradient(to right, #3b82f6, #9333ea); margin: 2rem 0; border-radius: 1rem; }
+    .fade-in { animation: fadeIn 1.2s; }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <a href="index.html" class="logo">DevIgniter</a>
+    <div class="nav-links">
+      <a href="project.html">Project Mode</a>
+      <a href="question.html">Question Practice</a>
+      <a href="concept.html">Concept Revision</a>
+    </div>
+  </nav>
+  <div class="container fade-in">
+    <h1>💻 Project Mode <span class="badge" style="background:#3b82f6;color:#fff;padding:0.2em 0.7em;border-radius:6px;font-size:1rem;vertical-align:middle;">AI Project Mentor</span></h1>
+    <div class="section-divider"></div>
+    <form id="pm-form" class="flex-col animated-form" style="animation: fadeIn 1.2s;">
+      <input type="text" id="pm-idea" placeholder="Project Idea (e.g. ToDo App)" required title="Describe your project idea" />
+      <input type="text" id="pm-language" placeholder="Language/Stack (e.g. Python)" required title="What language or stack?" />
+      <input type="text" id="pm-approach" placeholder="Approach Hint (optional)" title="Any special approach or hint?" />
+      <button type="submit" class="cta-btn" title="Let AI plan your project!">Plan Project</button>
+    </form>
+    <div id="pm-plan"></div>
+    <div style="display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap;">
+      <div style="flex: 1; min-width: 350px;">
+        <h2 style="margin-top:2rem;">Project Timeline & Milestones <span style="font-size:1.2em;vertical-align:middle;">⏳</span></h2>
+        <div id="timeline"></div>
+        <div id="milestone-progress" style="margin:1rem 0 0.5rem 0;"></div>
+        <button id="add-milestone" class="cta-btn" style="margin-top:1rem;" title="Add a new milestone">Add Milestone</button>
+      </div>
+      <div style="flex: 1; min-width: 320px;">
+        <div id="pm-assistant-panel"></div>
+      </div>
+    </div>
+    <div class="section-divider"></div>
+  </div>
+  <script src="project.js"></script>
+  <script>
+    // Animated fade-in for container
+    document.querySelector('.container').style.opacity = 0;
+    setTimeout(() => {
+      document.querySelector('.container').style.transition = 'opacity 1.2s';
+      document.querySelector('.container').style.opacity = 1;
+    }, 100);
+  </script>
+</body>
+</html>

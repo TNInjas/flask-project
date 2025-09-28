@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DevIgniter - Question Practice Mode</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="question-style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <a href="index.html" class="logo">DevIgniter</a>
+    <div class="nav-links">
+      <a href="project.html">Project Mode</a>
+      <a href="question.html">Question Practice</a>
+      <a href="concept.html">Concept Revision</a>
+    </div>
+  </nav>
+  <div class="container fade-in">
+    <h1>🧠 Question Practice Mode <span class="badge" style="background:#3b82f6;color:#fff;padding:0.2em 0.7em;border-radius:6px;font-size:1rem;vertical-align:middle;">AI Quizzer</span></h1>
+    <div class="section-divider"></div>
+    <form id="qp-form" class="flex-col animated-form" style="animation: fadeIn 1.2s;">
+      <input type="text" id="qp-concept" placeholder="Concept (e.g. Recursion)" required title="What concept do you want to practice?" />
+      <input type="text" id="qp-language" placeholder="Language (e.g. Python)" required title="Which language?" />
+      <select id="qp-level" title="Select difficulty level">
+        <option>Beginner</option>
+        <option>Intermediate</option>
+        <option>Advanced</option>
+      </select>
+      <input type="number" id="qp-num" placeholder="Number of Questions" min="1" max="10" value="5" required title="How many questions?" />
+      <button type="submit" class="cta-btn" title="Generate questions">Generate Questions</button>
+    </form>
+    <div id="qp-questions"></div>
+    <div id="qp-chatbot"></div>
+    <div class="section-divider"></div>
+  </div>
+  <script src="question.js"></script>
+  <script>
+    // Animated fade-in for container
+    document.querySelector('.container').style.opacity = 0;
+    setTimeout(() => {
+      document.querySelector('.container').style.transition = 'opacity 1.2s';
+      document.querySelector('.container').style.opacity = 1;
+    }, 100);
+  </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DevIgniter - Home</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <a href="index.html" class="logo">DevIgniter</a>
+    <div class="nav-links">
+      <a href="project.html" id="project-mode">Project Mode</a>
+      <a href="question.html" id="question-mode">Question Practice</a>
+      <a href="concept.html" id="concept-mode">Concept Revision</a>
+    </div>
+  </nav>
+  <main class="landing-container">
+    <h1 class="animated-title">Welcome to DevIgniter</h1>
+    <p class="subtitle">Choose a mode to ignite your developer journey:</p>
+    <div class="section-divider"></div>
+    <div class="mode-cards">
+      <a href="project.html" class="mode-card" tooltip="Plan, manage, and build projects with AI guidance!">
+        <span class="icon">💻</span>
+        <h2>Project Mode</h2>
+        <p>Plan, code, and build projects with an AI-powered mentor.</p>
+      </a>
+      <a href="question.html" class="mode-card" tooltip="Practice coding questions and get instant feedback!">
+        <span class="icon">🧠</span>
+        <h2>Question Practice</h2>
+        <p>Sharpen your skills with coding questions and instant feedback.</p>
+      </a>
+      <a href="concept.html" class="mode-card" tooltip="Revise and master programming concepts interactively!">
+        <span class="icon">📘</span>
+        <h2>Concept Revision</h2>
+        <p>Revise and master key programming concepts with an AI assistant.</p>
+      </a>
+    </div>
+    <div class="section-divider"></div>
+    <p style="color:#a0aec0;margin-top:2.5rem;font-size:1.1rem;">Empowering developers with AI. <span style="color:#3b82f6;">Let's build something amazing!</span></p>
+  </main>
+  <script>
+    // Animated title typing effect
+    const title = document.querySelector('.animated-title');
+    if (title) {
+      const text = title.textContent;
+      title.textContent = '';
+      let i = 0;
+      function type() {
+        if (i < text.length) {
+          title.textContent += text.charAt(i);
+          i++;
+          setTimeout(type, 32);
+        }
+      }
+      type();
+    }
+  </script>
+</body>
+</html>

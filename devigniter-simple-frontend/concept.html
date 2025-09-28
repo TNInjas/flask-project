@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DevIgniter - Concept Revision Mode</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="concept-style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <a href="index.html" class="logo">DevIgniter</a>
+    <div class="nav-links">
+      <a href="project.html">Project Mode</a>
+      <a href="question.html">Question Practice</a>
+      <a href="concept.html">Concept Revision</a>
+    </div>
+  </nav>
+  <div class="container fade-in">
+    <h1>📘 Concept Revision Mode <span class="badge" style="background:#3b82f6;color:#fff;padding:0.2em 0.7em;border-radius:6px;font-size:1rem;vertical-align:middle;">AI Concept Coach</span></h1>
+    <div class="section-divider"></div>
+    <form id="cr-form" class="flex-col animated-form" style="animation: fadeIn 1.2s;">
+      <input type="text" id="cr-concept" placeholder="Concept (e.g. OOP)" required title="What concept do you want to revise?" />
+      <input type="text" id="cr-language" placeholder="Language (e.g. Python)" required title="Which language?" />
+      <button type="submit" class="cta-btn" title="Get explanation">Generate Explanation</button>
+    </form>
+    <div id="cr-explanation"></div>
+    <div id="cr-chatbot"></div>
+    <div class="section-divider"></div>
+  </div>
+  <script src="concept.js"></script>
+  <script>
+    // Animated fade-in for container
+    document.querySelector('.container').style.opacity = 0;
+    setTimeout(() => {
+      document.querySelector('.container').style.transition = 'opacity 1.2s';
+      document.querySelector('.container').style.opacity = 1;
+    }, 100);
+  </script>
+</body>
+</html>
