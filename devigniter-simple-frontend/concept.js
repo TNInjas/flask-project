@@ -7,7 +7,7 @@ document.getElementById('cr-form').onsubmit = async function(e) {
     const res = await fetch('/concept-revision/explain', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({ concept, language, model_name: 'Deepseek_R1' })
+  body: JSON.stringify({ concept, language, model_name: 'Mistral_large_latest' })
     });
     const data = await res.json();
     if (data.error) {
@@ -78,4 +78,5 @@ function renderCrChatHistory() {
       <span class="bubble">${msg.content}</span>
     </div>
   `).join('');
+
 }
